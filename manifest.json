@@ -1,0 +1,32 @@
+{
+	"manifest_version": 2,
+	"name": "Ebay Price Statistics",
+	"version": "1.0",
+	"description": "Visualizes listing prices from ebay.com search results.",
+	"icons": {
+		"32": "./icons/histogram-512.png",
+		"96": "./icons/histogram-512.png"
+	},
+	"content_scripts": [
+		{ 
+			"matches": [
+				"*://*.ebay.de/sch/*"
+			],
+			"js": [
+				"./src/utils.js",
+				"./src/model.js",
+				"./src/scrape.js"
+			]
+		}
+	],
+	"browser_action": {
+		"default_icon": "./icons/histogram-512.png",
+		"default_title": "Analyze",
+		"default_popup": "./src/visualize.html"
+	},
+	"permissions": [
+		"activeTab",
+		"unlimitedStorage"
+	]
+}
+
