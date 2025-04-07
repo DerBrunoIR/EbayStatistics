@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=800, height=600, initial-scale=1">
+		<title>TODO</title>
+		<link rel="stylesheet" href="./lib/bootstrap.min.css@5.3.5">
+		<script src="./lib/chart.js@4.4.8" defer></script>
+		<script src='./popup.js' defer></script>
+	</head>
+	<body>
+		<div class="container" style="padding: 4px;">
+			<div class="row">
+				<div class="col">
+					<p class="h1">Listings</p>
+				</div>
+				<div class="col">
+					<strong>listing count</strong>
+					<p id="countListings">NaN</p>
+				</div>
+				<div class="col">
+					<button id="addListingsBtn" class="btn btn-primary">ADD Listings</button>
+				</div>
+				<div class="col">
+					<button id="clearListingsBtn" class="btn btn-primary">CLEAR Listings</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<p class="h1">Statistics</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col w-75 align-self-center">
+					<h6>Selling Prices</h6>
+					<canvas id="SellingPrices"></canvas>
+				</div>
+				<div class="col w-25">
+					<table class="table table-sm table-hover">
+						<thead>
+							<tr>
+								<th>Statistic</th>
+								<th>Selling Price</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>AVG</td>
+								<td id="avg">NaN</td>
+							</tr>
+							<tr>
+								<td>Std</td>
+								<td id="std">NaN</td>
+							</tr>
+							<tr>
+								<td>P100</td>
+								<td id="p100">NaN</td>
+							</tr>
+							<tr>
+								<td>P75</td>
+								<td id="p75">NaN</td>
+							</tr>
+							<tr>
+								<td>P50</td>
+								<td id="p50">NaN</td>
+							</tr>
+							<tr>
+								<td>P25</td>
+								<td id="p25">NaN</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col w-50 h-75">
+					<h6>Selling Prices vs Time</h6>
+					<canvas id="SellingPricesVsTime"></canvas>
+				</div>
+				<div class="col w-50 h-75">
+					<h6>Selling Prices vs Rating</h6>
+					<canvas id="SellingPricesVsRating"></canvas>
+				</div>
+			</div>
+		</div> 
+	</body>
+</html>
