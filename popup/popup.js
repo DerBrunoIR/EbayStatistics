@@ -1,7 +1,5 @@
 
 console.log('popup.js started');
-
-
 let listings = [];
 
 
@@ -53,7 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		// update listing data
 		let newListingTableBody = listingTableBody.cloneNode(false);
-		listings.sort((a, b) => { a.date_auction_end < b.date_auction_end })
+		listings
+			.slice(0, 100)
 			.forEach((listing) => {
 			let tr = document.createElement('tr');
 			let date = listing.date_auction_end;
@@ -162,6 +161,16 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
+	// load locally stored listings 
+	browser.storage.local.get({ listings: [] })
+		.then((res) => {
+			if (listings.length == 0 && res.listings.length > 0) 
+				enableClearListingsBtn();
+			listings = res.listings;
+			updatePopup(listings);
+		})
+
+
 	// communicate to content script
 	browser.tabs.query({ active: true, currentWindow: true }).then((tabs) => {
 		let tab = tabs[0];
@@ -175,9 +184,8 @@ document.addEventListener('DOMContentLoaded', () => {
 				type: "dummy",
 				data: "check if scraper is alive",
 			},
-		).then(() => {
-			enableAddListingsBtn();
-		}).catch((error) => {
+		).then(enableAddListingsBtn)
+		.catch((error) => {
 			console.log("No scraper found.");
 			disableAddListingsBtn();
 		});
@@ -205,10 +213,12 @@ document.addEventListener('DOMContentLoaded', () => {
 					data = response.data;
 				if (type == "return listings") {
 					console.log(`Received ${data.length} listings.`);
-					if (listings.length == 0) 
+					if (listings.length == 0 && data.length > 0) 
 						enableClearListingsBtn();
+					console.log(listings);
 					listings = listings.concat(data);
 					updatePopup(listings);
+					browser.storage.local.set({listings: listings});
 				} else {
 					throw Error(`Received unexpected message '${response}'`);
 				}
@@ -223,8 +233,8 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 			console.log('clearing listings');
 			listings = [];
+			browser.storage.local.set({listings: listings});
 			disableClearListingsBtn();
 		});
 	});
 });
-

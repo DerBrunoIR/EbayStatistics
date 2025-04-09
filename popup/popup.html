@@ -9,21 +9,21 @@
 		<script src="./lib/simple-statistics.min.js@7.8.8"></script>
 		<script src='./popup.js' defer></script>
 	</head>
-	<body style="padding:10px;width:100%;height:100%;">
+	<body class="w-100 h-100 p-5">
 		<div class="container">
 			<div class="row">
 				<div class="col">
 					<p class="h1">Listings</p>
 				</div>
 				<div class="col">
-					<strong>listing count</strong>
+					<strong>count</strong>
 					<p id="countListings">0</p>
 				</div>
 				<div class="col">
-					<button id="addListingsBtn" class="btn btn-grey disabled">ADD Listings</button>
+					<button id="addListingsBtn" class="btn btn-grey disabled w-100 h-80">ADD Listings</button>
 				</div>
 				<div class="col">
-					<button id="clearListingsBtn" class="btn btn-grey disabled">CLEAR Listings</button>
+					<button id="clearListingsBtn" class="btn btn-grey disabled w-100 h-80">CLEAR Listings</button>
 				</div>
 			</div>
 			<div class="row">
@@ -31,19 +31,21 @@
 					<p class="h1">Statistics</p>
 				</div>
 			</div>
+			<br>
 			<div class="row">
 				<div class="col w-75 align-self-center">
 					<h6>Number of sold articles for price x</h6>
-					<canvas id="SellingPrices"></canvas>
+					<canvas class='mw-100' id="SellingPrices"></canvas>
 				</div>
 			</div>
+			<br>
 			<div class="row">
 				<div class="col w-25">
 					<table class="table table-sm table-hover">
 						<thead>
 							<tr>
 								<th>Statistic</th>
-								<th>Price in EUR</th>
+								<th>EUR</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -79,21 +81,24 @@
 					</table>
 				</div>
 			</div>
+			<br>
 			<div class="row">
 				<div class="col w-100 h-100">
 					<h6>Prices vs Time</h6>
-					<canvas id="SellingPricesVsTime"></canvas>
+					<canvas class='mw-100' id="SellingPricesVsTime"></canvas>
 				</div>
 			</div>
+			<br>
 			<div class="row">
 				<div class="col w-100 h-100">
 					<h6>Prices vs User Rating</h6>
-					<canvas id="SellingPricesVsRating"></canvas>
+					<canvas class='mx-100' id="SellingPricesVsRating"></canvas>
 				</div>
 			</div>
+			<br>
 			<div class="row">
-				<h1>Data</h1>
-				<table class="table table-sm table-hover text-end">
+				<h1>Data - first 100 listings</h1>
+				<table class="table table-sm table-hover text-end w-100">
 					<thead>
 						<tr>
 							<th>EndDate</th>
