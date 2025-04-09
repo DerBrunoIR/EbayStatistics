@@ -1,2 +1,2 @@
 
-./popup/lib/*.js@*
+popup/lib/*.js@* linguist-language=JavaScript
