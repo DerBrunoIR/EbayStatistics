@@ -26,7 +26,10 @@ Then it should be installed.
 2. perform a search
 3. open extension popup
 4. press the `add listings` button
-5. go back to 2 for adding more listings or take a look on charts 
+5. go back to 2 for adding more listings or take a look on charts
+
+I recommend using the `advanced search` and increasing the number of listings per page to 240.
+Additionally you could choose to display only sold listings and exclude terms linked to other articles.
 
 # Issues
 Changes made to the ebay UI could break this extension.
