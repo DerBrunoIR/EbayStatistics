@@ -16,8 +16,7 @@ A firefox extension for visualizing ebay auction price data in different charts 
 2. perform a search
 3. open extension popup
 4. press the `add listings` button
-5.1 go back to 2 for adding more listings or
-5.2 take a look on charts 
+5. go back to 2 for adding more listings or take a look on charts 
 
 # How to install
 Currenlty you have to install this extensions as temporary debug extension.
