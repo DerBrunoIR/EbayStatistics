@@ -1,22 +1,23 @@
 # EbayStatistics
 
-A firefox extension for visualizing ebay auction price data in different charts and calculating some statistics, like mean, median, quantils.
+A Firefox extension for visualizing eBay auction price data in different charts and calculating some statistics, like mean, median, and quantiles.
 
 # Images
+Results for the search term `Glühbirnen`.
 
-<img src="https://github.com/user-attachments/assets/a8019c24-bba2-4c95-bbb5-1b54c9b4d628" width="60%">
-<img src="https://github.com/user-attachments/assets/a5404a97-9c22-438b-9f31-0f143df1da2b" width="60%">
-<img src="https://github.com/user-attachments/assets/015acf00-6cdb-4c35-b764-fb486ae23701" width="60%">
-<img src="https://github.com/user-attachments/assets/8aa4af07-e93f-4b49-bd50-bce478b74720" width="60%">
-<img src="https://github.com/user-attachments/assets/6ec98e5b-6211-4c0f-b989-7d2909c1233c" width="60%">
+<img src="https://github.com/user-attachments/assets/98cfd369-9b3d-41b8-ab4c-c749038e426e" width="60%">
+<img src="https://github.com/user-attachments/assets/9b4bd678-4646-4511-b944-567d21d69d2e" width="60%">
+<img src="https://github.com/user-attachments/assets/444bd74d-e1b0-4310-b309-0d21ca82cc7a" width="60%">
+<img src="https://github.com/user-attachments/assets/40119f8d-8a3f-421a-ae75-c37325fb4d0d" width="60%">
+<img src="https://github.com/user-attachments/assets/b40efff3-4d6e-4e93-baa4-2c6618ed27b2" width="60%">
 
 # How to install
-Currenlty you have to install this extensions as temporary debug extension.
+Currently, you have to install this extension as a temporary debug extension.
 That means:
-1. download this repository 
+1. download this repository
 2. go to `Manage Extensions`
 3. settings wheel
-4. debug addons
+4. debug addon
 5. load temporary addon
 6. select the `manifset.json` from this repository.
 Then it should be installed.
@@ -26,11 +27,11 @@ Then it should be installed.
 2. perform a search
 3. open extension popup
 4. press the `add listings` button
-5. go back to 2 for adding more listings or take a look on charts
+5. go back to 2 for adding more listings or take a look at the charts
 
 I recommend using the `advanced search` and increasing the number of listings per page to 240.
-Additionally you could choose to display only sold listings and exclude terms linked to other articles.
-Sorting by end time could be usefull too.
+Additionally, you could choose to display only sold listings and exclude terms linked to other articles.
+Sorting by end time could be useful too.
 
 # Issues
-Changes made to the ebay UI could break this extension.
+Changes made to the eBay UI could break this extension.
