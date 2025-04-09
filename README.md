@@ -10,14 +10,6 @@ A firefox extension for visualizing ebay auction price data in different charts 
 <img src="https://github.com/user-attachments/assets/8aa4af07-e93f-4b49-bd50-bce478b74720" width="60%">
 <img src="https://github.com/user-attachments/assets/6ec98e5b-6211-4c0f-b989-7d2909c1233c" width="60%">
 
-
-# How to use
-1. visit [www.ebay.de](www.ebay.de)
-2. perform a search
-3. open extension popup
-4. press the `add listings` button
-5. go back to 2 for adding more listings or take a look on charts 
-
 # How to install
 Currenlty you have to install this extensions as temporary debug extension.
 That means:
@@ -28,3 +20,13 @@ That means:
 5. load temporary addon
 6. select the `manifset.json` from this repository.
 Then it should be installed.
+
+# How to use
+1. visit [www.ebay.de](www.ebay.de)
+2. perform a search
+3. open extension popup
+4. press the `add listings` button
+5. go back to 2 for adding more listings or take a look on charts 
+
+# Issues
+Changes made to the ebay UI could break this extension.
