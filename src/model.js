@@ -132,3 +132,18 @@ class AuctionListing {
 	}
 }
 
+
+class Message {
+	type;
+	data;
+
+	/**
+		* Represents a message
+		* @param {string} type - type of the message
+		* @param {any} data - data contained by the message
+		*/
+	constructor(type, data) {
+		this.type = type;
+		this.data = data;
+	}
+}

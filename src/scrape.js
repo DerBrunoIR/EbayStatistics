@@ -305,12 +305,39 @@ function scrape_listings_from_current_page() {
 }
 
 // testing
-test_parse_price()
-test_parse_subtitle()
-test_parse_seller_info()
-test_parse_auction_end_date()
-test_parse_item_location()
-test_parse_auction_finish_caption()
+console.log("testing:");
+try {
+	test_parse_price()
+	test_parse_subtitle()
+	test_parse_seller_info()
+	test_parse_auction_end_date()
+	test_parse_item_location()
+	test_parse_auction_finish_caption()
+	console.log("all test successfull, waiting for requests ...")
+} catch(error) {
+	console.log("test failed with error:")
+	console.log(error);
+}
 
-console.log(scrape_listings_from_current_page().map(x => x.toString()));
+// request handler
+browser.runtime.onMessage.addListener((msg, sender, sendResponse) => {
+	if (typeof msg != "object" || !msg.type ) {
+		throw Error(`Received invalid message '${JSON.stringify(msg)}'.`); 
+	}
+	console.log(`Received message ${JSON.stringify(msg)}.`);
+	let type = msg.type,
+		data = msg.data;
 
+	if (type == 'dummy') {
+		console.log(`dummy data: ${data}.`);
+
+	} else if (type == 'get listings') {
+		let listings = scrape_listings_from_current_page();
+		console.log(`Found ${listings.length} listings on current page.`);
+		console.log(sendResponse);
+		sendResponse({ type: "return listings", data: listings });
+
+	} else {
+		throw Error(`Received unexpected message '${msg}'.`);
+	}
+})

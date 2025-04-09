@@ -1,28 +1,29 @@
 <!doctype html>
-<html>
+<html data-bs-theme="dark">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=800, height=600, initial-scale=1">
 		<title>TODO</title>
 		<link rel="stylesheet" href="./lib/bootstrap.min.css@5.3.5">
 		<script src="./lib/chart.js@4.4.8" defer></script>
+		<script src="./lib/simple-statistics.min.js@7.8.8"></script>
 		<script src='./popup.js' defer></script>
 	</head>
-	<body class="mw-100 mh-100">
-		<div class="container" style="padding: 4px;">
+	<body style="padding:10px;width:100%;height:100%;">
+		<div class="container">
 			<div class="row">
 				<div class="col">
 					<p class="h1">Listings</p>
 				</div>
 				<div class="col">
 					<strong>listing count</strong>
-					<p id="countListings">NaN</p>
+					<p id="countListings">0</p>
 				</div>
 				<div class="col">
-					<button id="addListingsBtn" class="btn btn-primary">ADD Listings</button>
+					<button id="addListingsBtn" class="btn btn-grey disabled">ADD Listings</button>
 				</div>
 				<div class="col">
-					<button id="clearListingsBtn" class="btn btn-primary">CLEAR Listings</button>
+					<button id="clearListingsBtn" class="btn btn-grey disabled">CLEAR Listings</button>
 				</div>
 			</div>
 			<div class="row">
@@ -32,21 +33,27 @@
 			</div>
 			<div class="row">
 				<div class="col w-75 align-self-center">
-					<h6>Selling Prices</h6>
+					<h6>Number of sold articles for price x</h6>
 					<canvas id="SellingPrices"></canvas>
 				</div>
+			</div>
+			<div class="row">
 				<div class="col w-25">
 					<table class="table table-sm table-hover">
 						<thead>
 							<tr>
 								<th>Statistic</th>
-								<th>Selling Price</th>
+								<th>Price in EUR</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td>AVG</td>
+								<td>mean</td>
 								<td id="avg">NaN</td>
+							</tr>
+							<tr>
+								<td>median</td>
+								<td id="median">NaN</td>
 							</tr>
 							<tr>
 								<td>Std</td>
@@ -73,14 +80,32 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col w-50 h-75">
-					<h6>Selling Prices vs Time</h6>
+				<div class="col w-100 h-100">
+					<h6>Prices vs Time</h6>
 					<canvas id="SellingPricesVsTime"></canvas>
 				</div>
-				<div class="col w-50 h-75">
-					<h6>Selling Prices vs Rating</h6>
+			</div>
+			<div class="row">
+				<div class="col w-100 h-100">
+					<h6>Prices vs User Rating</h6>
 					<canvas id="SellingPricesVsRating"></canvas>
 				</div>
+			</div>
+			<div class="row">
+				<h1>Data</h1>
+				<table class="table table-sm table-hover text-end">
+					<thead>
+						<tr>
+							<th>EndDate</th>
+							<th>User</th>
+							<th>TimesRated</th>
+							<th>Rating</th>
+							<th>EUR</th>
+						</tr>
+					</thead>
+					<tbody id="listingTableBody">
+					</tbody>
+				</table>
 			</div>
 		</div> 
 	</body>
