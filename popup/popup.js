@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		let days = [...new Set(listings.map((listing) => listing.date_auction_end))].sort((a, b) => a > b);
 		let median_daily_selling_price = days.map((day) => {
 			return {
-				x: `${day.getDate()}.${day.getMonth()}.${day.getFullYear()}`,
+				x: `${day.getDate()}.${day.getMonth()+1}.${day.getFullYear()}`,
 				y: ss.median(listings.filter(
 					(listing) => listing.date_auction_end.toDateString() == day.toDateString()
 				).map((listing) => listing.price_current))
