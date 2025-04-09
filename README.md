@@ -4,7 +4,7 @@ A Firefox extension for visualizing eBay auction price data in different charts 
 
 # Images
 
-<img src="https://github.com/user-attachments/assets/a8019c24-bba2-4c95-bbb5-1b54c9b4d628" width="60%">
+<img src="https://github.com/user-attachments/assets/98cfd369-9b3d-41b8-ab4c-c749038e426e" width="60%">
 <img src="https://github.com/user-attachments/assets/a5404a97-9c22-438b-9f31-0f143df1da2b" width="60%">
 <img src="https://github.com/user-attachments/assets/015acf00-6cdb-4c35-b764-fb486ae23701" width="60%">
 <img src="https://github.com/user-attachments/assets/8aa4af07-e93f-4b49-bd50-bce478b74720" width="60%">
