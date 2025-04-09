@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="./lib/bootstrap.min.css@5.3.5">
 		<script src="./lib/chart.js@4.4.8" defer></script>
 		<script src="./lib/simple-statistics.min.js@7.8.8"></script>
+		<script src="../src/model.js"></script>
 		<script src='./popup.js' defer></script>
 	</head>
 	<body class="w-100 h-100 p-5">
@@ -34,7 +35,7 @@
 			<br>
 			<div class="row">
 				<div class="col w-75 align-self-center">
-					<h6>Number of sold articles for price x</h6>
+					<h6>Number of sold articles by price</h6>
 					<canvas class='mw-100' id="SellingPrices"></canvas>
 				</div>
 			</div>
@@ -91,7 +92,7 @@
 			<br>
 			<div class="row">
 				<div class="col w-100 h-100">
-					<h6>Prices vs User Rating</h6>
+					<h6>User Rating vs Price</h6>
 					<canvas class='mx-100' id="SellingPricesVsRating"></canvas>
 				</div>
 			</div>

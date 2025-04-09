@@ -6,6 +6,29 @@ function assert(condition, msg) {
 	}
 }
 
+/**
+	* Sorts all values from array ascending into k buckets.
+	* @param {Array<Number>} array - non negative numbers
+	* @param {Number} k - non negative bucket count 
+	* @returns {Array<Array<Number>>} 
+	*/
+function bucketSort(array, k) {
+	assert(k > 0, "Expected k to be non negative!");
+	let buckets = new Array(k);
+		max = ss.max(array) + 1;
+	for (let i = 0; i < k; i++) {
+		buckets[i] = [];
+	}
+	for (const val of array) {
+		assert(val >= 0, `Expected '${val}' to be non negative.`)
+		let idx = Math.floor(k * val / max);
+		//console.log(`idx = floor(${k} * ${val} / ${max}) = ${idx}`)
+		buckets[idx].push(val);
+	}
+	return buckets;
+}
+
+
 /** Not reusable builder for AuctionListings */
 class AuctionListingBuilder {
 	constructor(date_scraped = new Date()) {

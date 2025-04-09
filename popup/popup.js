@@ -2,6 +2,28 @@
 console.log('popup.js started');
 let listings = [];
 
+/**
+	* Sorts all values from array ascending into k buckets.
+	* @param {Array<Number>} array - non negative numbers
+	* @param {Number} k - non negative bucket count 
+	* @returns {Array<Array<Number>>} 
+	*/
+function bucketSort(array, k) {
+	assert(k > 0, "Expected k to be non negative!");
+	let buckets = new Array(k);
+		max = ss.max(array) + 1;
+	for (let i = 0; i < k; i++) {
+		buckets[i] = [];
+	}
+	for (const val of array) {
+		assert(val >= 0, `Expected '${val}' to be non negative.`)
+		let idx = Math.floor(k * val / max);
+		//console.log(`idx = floor(${k} * ${val} / ${max}) = ${idx}`)
+		buckets[idx].push(val);
+	}
+	return buckets;
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
 	let sellingPrices = document.querySelector('#SellingPrices'),
@@ -70,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		// update stats
 		let prices = listings.map((listing) => listing.price_current)
-		avg.innerText = Math.round(ss.mean(prices));
+		avg.innerText = prices.length > 0? Math.round(ss.mean(prices)): NaN;
 		median.innerText = Math.round(ss.median(prices));
 		std.innerText = Math.round(ss.standardDeviation(prices));
 		p100.innerText = Math.round(ss.quantile(prices, 1));
@@ -78,27 +100,24 @@ document.addEventListener('DOMContentLoaded', () => {
 		p50.innerText = Math.round(ss.quantile(prices, .50));
 		p25.innerText = Math.round(ss.quantile(prices, .25));
 
+
 		// update distribution of sellingPrices
-		let max = ss.max(prices);
-		max = max + 100 - max % 100;
-		let min = ss.min(prices);
-		min = min - min % 100;
+		let bucketCount = 10;
+		let buckets = bucketSort(prices, bucketCount);
 		if (chartSellingPrices) chartSellingPrices.destroy();
 		chartSellingPrices = new Chart(sellingPrices, {
 			type: 'bar',
 			data: {
-			labels: Array.from({length: Math.round((max - min)/100)}).map((_, idx) => min + 100 * idx),
-			  datasets: [{
-				label: 'Count',
-				data: prices,
-				borderWidth: 1,
-			  }]
+				labels: buckets.map((bucket) => bucket.length > 0 ? `${Math.round(ss.min(bucket))}-${Math.round(ss.max(bucket))}` : ""),
+				datasets: [{
+					label: 'Count',
+					data: buckets.map((bucket) => bucket.length),
+					borderWidth: 1,
+				}]
 			},
 			options: {
-				scales: {
-					y: {
-						beginAtZero: true
-					}
+				y: {
+					beginAtZero: true
 				}
 			}
 		});
@@ -123,7 +142,6 @@ document.addEventListener('DOMContentLoaded', () => {
 					pointRadius: 0
 				}],
 			},
-			labels: days,
 			options: {
 				y: {
 					beginAtZero: true
@@ -143,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			type: 'scatter',
 			data: {
 				datasets: [{
-					label: 'EUR',
+					label: '(rating, price)',
 					data: rating_selling_price,
 				}],
 			},
