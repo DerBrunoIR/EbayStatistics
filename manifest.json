@@ -1,8 +1,8 @@
 {
 	"manifest_version": 2,
-	"name": "Ebay Price Statistics",
+	"name": "EbayStats",
 	"version": "1.0",
-	"description": "Visualizes listing prices from ebay.com search results.",
+	"description": "Evaluates listing prices from ebay.de search results.",
 	"icons": {
 		"32": "./icons/histogram-512.png",
 		"96": "./icons/histogram-512.png"
