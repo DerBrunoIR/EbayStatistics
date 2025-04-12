@@ -25,7 +25,6 @@ function bucketSort(array, k) {
 }
 
 
-// first js project ends up in a callback hell, next time I will try async await.
 document.addEventListener('DOMContentLoaded', () => {
 
 	// page elements
