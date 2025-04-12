@@ -1,5 +1,5 @@
 
-console.log('popup.js started');
+console.log('popup.js alive');
 let listings = [];
 
 /**
@@ -25,7 +25,10 @@ function bucketSort(array, k) {
 }
 
 
+// first js project ends up in a callback hell, next time I will try async await.
 document.addEventListener('DOMContentLoaded', () => {
+
+	// page elements
 	let sellingPrices = document.querySelector('#SellingPrices'),
 		sellingPricesVsTime = document.querySelector('#SellingPricesVsTime'),
 		sellingPricesVsRating = document.querySelector('#SellingPricesVsRating'),
@@ -40,33 +43,39 @@ document.addEventListener('DOMContentLoaded', () => {
 		p50 = document.querySelector('#p50'),
 		p25 = document.querySelector('#p25'),
 		countListings = document.querySelector('#countListings');
+	// chart variables
 	let chartSellingPrices, chartSellingPricesVsTime, chartSellingPricesVsRating;
+	
 
-
+	// AddListingBtn
 	function enableAddListingsBtn() {
 		addListingsBtn.classList.remove('disabled');
 		addListingsBtn.classList.remove('btn-grey');
 		addListingsBtn.classList.add('btn-primary');
 	}
-
 	function disableAddListingsBtn() {
 		addListingsBtn.classList.add('disabled');
 		addListingsBtn.classList.add('btn-grey');
 		addListingsBtn.classList.remove('btn-primary');
 	}
 
+	// ClearListingsBtn
 	function enableClearListingsBtn() {
 		clearListingsBtn.classList.remove('disabled');
 		clearListingsBtn.classList.remove('btn-grey');
 		clearListingsBtn.classList.add('btn-danger');
 	}
-
 	function disableClearListingsBtn() {
 		clearListingsBtn.classList.add('disabled');
 		clearListingsBtn.classList.add('btn-grey');
 		clearListingsBtn.classList.remove('btn-danger');
 	}
 
+	/**
+		* Display given listings in DOM.
+		* @param {Array<AuctionListing>} listings - to be displayed
+		* @affects all previously declard page elements, chart variables and the DOM.
+		*/
 	function updatePopup(listings) {
 		// update listing count
 		countListings.innerText = listings.length
@@ -90,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		listingTableBody.replaceWith(newListingTableBody);
 		listingTableBody = newListingTableBody;
 
-		// update stats
+		// update statistics
 		let prices = listings.map((listing) => listing.price_current)
 		avg.innerText = prices.length > 0? Math.round(ss.mean(prices)): NaN;
 		median.innerText = Math.round(ss.median(prices));
@@ -100,8 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		p50.innerText = Math.round(ss.quantile(prices, .50));
 		p25.innerText = Math.round(ss.quantile(prices, .25));
 
-
-		// update distribution of sellingPrices
+		// update selling price historgram
 		let bucketCount = 10;
 		let buckets = bucketSort(prices, bucketCount);
 		if (chartSellingPrices) chartSellingPrices.destroy();
@@ -122,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 		});
 
-		// update prices vs time
+		// update prices vs time line diagram
 		let days = [...new Set(listings.map((listing) => listing.date_auction_end))].sort((a, b) => a > b);
 		let median_daily_selling_price = days.map((day) => {
 			return {
@@ -149,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 		});
 
-		// update prices vs user rating
+		// update prices vs user rating scatter plot
 		let rating_selling_price = listings.map((listing) => {
 			return {
 				x: listing.user_rating,
@@ -178,8 +186,10 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 		});
 	}
+	// we are back in the 'DOMContentLoaded' listener
 
-	// load locally stored listings 
+
+	// load previously locally stored listings 
 	browser.storage.local.get({ listings: [] })
 		.then((res) => {
 			if (listings.length == 0 && res.listings.length > 0) 
@@ -189,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		})
 
 
-	// communicate to content script
+	// interact with content script
 	browser.tabs.query({ active: true, currentWindow: true }).then((tabs) => {
 		let tab = tabs[0];
 		if (!tab || !tab.id) {
@@ -208,13 +218,14 @@ document.addEventListener('DOMContentLoaded', () => {
 			disableAddListingsBtn();
 		});
 
-		// listen for add listings button clicks
+
+		// user wants to add listings
 		addListingsBtn.addEventListener('click', (event) => {
 			if (!event.isPrimary) {
 				// we ignore non primary clicks
 				return;
 			}
-			// send request to listing scraper
+			// ask scraper.js for listings
 			console.log('requesting listings')
 			browser.tabs.sendMessage(
 				tab.id,
@@ -230,20 +241,22 @@ document.addEventListener('DOMContentLoaded', () => {
 				let type = response.type,
 					data = response.data;
 				if (type == "return listings") {
+					// we received listings
 					console.log(`Received ${data.length} listings.`);
-					if (listings.length == 0 && data.length > 0) 
-						enableClearListingsBtn();
-					console.log(listings);
 					listings = listings.concat(data);
+					if (listings.length > 0)
+						enableClearListingsBtn();
 					updatePopup(listings);
 					browser.storage.local.set({listings: listings});
 				} else {
+					// we did not receive listings
 					throw Error(`Received unexpected message '${response}'`);
 				}
 			});
 		});
 
-		// listen for clear btn clicks
+
+		// user wants to clear listings
 		clearListingsBtn.addEventListener('click', (event) => {
 			if (!event.isPrimary) {
 				// we ignore non primary clicks
@@ -251,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 			console.log('clearing listings');
 			listings = [];
-			browser.storage.local.set({listings: listings});
+			browser.storage.local.set({listings: []});
 			disableClearListingsBtn();
 		});
 	});
