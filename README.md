@@ -5,7 +5,7 @@
 
 A Firefox extension for visualizing eBay auction price data in different charts and calculating some statistics, like mean, median, and quantiles.
 
-# Images
+# Features
 Results for the search term `Glühbirnen`.
 
 <img src="https://github.com/user-attachments/assets/98cfd369-9b3d-41b8-ab4c-c749038e426e" width="60%">
