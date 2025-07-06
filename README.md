@@ -1,3 +1,6 @@
+> [!Warning]
+> Change made to the Ebay UI could break this library.
+
 # EbayStatistics
 
 A Firefox extension for visualizing eBay auction price data in different charts and calculating some statistics, like mean, median, and quantiles.
