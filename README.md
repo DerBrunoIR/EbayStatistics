@@ -35,6 +35,3 @@ Then it should be installed.
 I recommend using the `advanced search` and increasing the number of listings per page to 240.
 Additionally, you could choose to display only sold listings and exclude terms linked to other articles.
 Sorting by end time could be useful too.
-
-# Issues
-Changes made to the eBay UI could break this extension.
