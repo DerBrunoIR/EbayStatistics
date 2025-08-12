@@ -1,5 +1,5 @@
 > [!Warning]
-> Change made to the Ebay UI could break this library.
+> Changes made in the Ebay UI could break this library.
 
 # EbayStatistics
 
