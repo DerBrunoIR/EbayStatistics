@@ -43,7 +43,7 @@ Sorting by end time could be useful too.
 # Limitations
 Price notation and other elements vary between different languages.
 This makes price extraction for different languages at the same time very difficult.
-Therefore currently only `german` is supported.
+Therefore, only `german` is supported.
 
-Non auction listings, like sell offers, adds or commercial offeres, are ignored.
+Non auction listings, like sell offers, ads or commercial offeres, are ignored.
 Auction listings with a strange structure, unkown date format or unkown price format, are also ignored.
