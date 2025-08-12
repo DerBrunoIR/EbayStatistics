@@ -3,7 +3,7 @@
 
 # EbayStatistics
 
-A Firefox extension to get market insights for eBay auctions with minimal amount of effort and high flexibility.
+A Firefox extension to gather market insights for eBay auctions with minimal amount of effort and high flexibility.
 The user collects auction listings from different pages and is able to see statistics about pricing, pricing over time and the relationship between user rating and pricing.
 By selecting only running auction listings realtime data can be analyzed.
 By selecting only finished auction listings historic data can be analyzed.
