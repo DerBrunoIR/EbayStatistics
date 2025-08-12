@@ -49,6 +49,6 @@ This makes price extraction for different languages espacially difficult.
 Therefore, only `german` is supported.
 
 The most common date and price formats, we could find, are supported.
-Formats we couldn't find are therefore ignored to prevent unexpected results.
+Formats we couldn't find are ignored to prevent unexpected results.
 
 Listings from users with a negative amount of ratings are ignored since they would affect the rating vs price diagram.
