@@ -3,7 +3,9 @@
 
 # EbayStatistics
 
-A Firefox extension for visualizing eBay auction price data in different charts and calculating some statistics, like mean, median, and quantiles.
+A Firefox extension to get market insights for eBay auctions with minimal amount of effort and high flexibility.
+The user scrapes via a button click choosen auction listings and is able to see statistics about pricing.
+For more details, see section Features.
 
 # Features
 Results for the search term `Glühbirnen`.
