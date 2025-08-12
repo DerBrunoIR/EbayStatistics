@@ -5,6 +5,8 @@
 
 A Firefox extension to get market insights for eBay auctions with minimal amount of effort and high flexibility.
 The user collects auction listings from different pages and is able to see statistics about pricing, pricing over time and the relationship between user rating and pricing.
+By selecting only running auctions realtime data can be analyzed.
+By selecting only finished auctions historic data can be analyzed.
 For more details, see section Features.
 
 # Features
@@ -34,6 +36,6 @@ Then it should be installed.
 4. press the `add listings` button
 5. go back to 2 for adding more listings or take a look at the charts
 
-I recommend using the `advanced search` and increasing the number of listings per page to 240.
-Additionally, you could choose to display only sold listings and exclude terms linked to other articles.
+I recommend using the `advanced search` and increasing the **number of listings per page** to 240.
+Additionally, you could choose to display only **sold listings** and exclude terms linked to other articles.
 Sorting by end time could be useful too.
