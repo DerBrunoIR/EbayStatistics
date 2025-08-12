@@ -41,9 +41,14 @@ Additionally, you could choose to display only **sold listings** and exclude ter
 Sorting by end time could be useful too.
 
 # Limitations
-Price notation and other elements vary between different languages.
-This makes price extraction for different languages at the same time very difficult.
+Non auction listings, like sell offers, ads or commercial offeres, are ignored.
+We assumed that auction pricing carries the most valuable insights.
+
+Notation used for listings varies between different listings and languages.
+This makes price extraction for different languages espacially difficult.
 Therefore, only `german` is supported.
 
-Non auction listings, like sell offers, ads or commercial offeres, are ignored.
-Auction listings with a strange structure, unkown date format or unkown price format, are also ignored.
+The most common date and price formats, we could find, are supported.
+Formats we couldn't find are therefore ignored to prevent unexpected results.
+
+Listings from users with a negative amount of ratings are ignored since they would affect the rating vs price diagram.
