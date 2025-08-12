@@ -36,9 +36,9 @@ Then it should be installed.
 4. press the `add listings` button
 5. go back to 2 for adding more listings or take a look at the charts
 
-I recommend using the `advanced search` and increasing the **number of listings per page** to 240.
+I recommend the usage of the `advanced search`. It allows to increase the **number of listings per page** up to 240.
 Additionally, you could choose to display only **sold listings** and exclude terms linked to other articles.
-Sorting by end time could be useful too.
+Sorting by finish time could be useful too.
 
 # Limitations
 Non auction listings, like sell offers, ads or commercial offeres, are ignored.
