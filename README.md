@@ -42,7 +42,7 @@ Sorting by end time could be useful too.
 
 # Limitations
 Non auction listings, like sell offers, ads or commercial offeres, are ignored.
-We assumed that auction pricing carries the most valuable insights.
+We assume, that auction prices lead to the most valuable insights.
 
 Notation used for listings varies between different listings and languages.
 This makes price extraction for different languages espacially difficult.
