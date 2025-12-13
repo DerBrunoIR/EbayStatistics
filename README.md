@@ -1,5 +1,5 @@
 > [!Warning]
-> Since ebay uses sever side rendering we have to use the HTML source code retrieve data. Therefore, changes made to this HTML structure could break data retrieval.
+> Since Ebay uses SSR market data is contained in HTML. Changes made to the HTML structure could break data extraction.
 
 # EbayStatistics
 
