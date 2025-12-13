@@ -1,5 +1,5 @@
 > [!Warning]
-> Changes made in the Ebay UI could break this library.
+> Since ebay uses sever side rendering we have to use the HTML source code retrieve data. Therefore, changes made to this HTML structure could break data retrieval.
 
 # EbayStatistics
 
