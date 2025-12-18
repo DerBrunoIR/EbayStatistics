@@ -43,15 +43,14 @@ I recommend the usage of the `advanced search`. It allows to increase the **numb
 Additionally, you could choose to display only **sold listings** and exclude terms linked to other articles.
 Sorting by finish time could be useful too.
 
-# Limitations
+# Notes
 Non auction listings, like sell offers, ads or commercial offeres, are ignored.
 We assume, that auction prices lead to the most valuable insights.
 
-Notation used for listings varies between different listings and languages.
+Listing content varies between different listings and languages.
 This makes price extraction for different languages espacially difficult.
 Therefore, only `german` is supported.
-
 The most common date and price formats, we could find, are supported.
-Formats we couldn't find are ignored to prevent unexpected results.
+Listings with unexpected formats are ignored.
 
-Listings from users with a negative amount of ratings are ignored since they would affect the rating vs price diagram.
+We noted, that some users indeed had a negative amount of ratings and those listings are ignored since they would affect the rating vs price diagram.
