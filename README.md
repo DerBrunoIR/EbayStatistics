@@ -1,5 +1,8 @@
 > [!Warning]
-> Since Ebay uses SSR market data is contained in HTML. Changes made to the HTML structure could break data extraction.
+> Changes made to the HTML structure can break data extraction.
+
+> [!Warning]
+> Data extraction is currently broken.
 
 # EbayStatistics
 
