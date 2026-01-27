@@ -1,5 +1,5 @@
 > [!Warning]
-> Since Ebay uses server side rendering, changes made to the HTML structure can break data extraction.
+> Since Ebay uses server side rendering, changes made to the HTML structure can break price extraction.
 
 > [!Warning]
 > Data extraction is currently broken.
